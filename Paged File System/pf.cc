@@ -111,57 +111,6 @@ bool PF_Manager::fileExists(const char* fileName)
 	else return false;
 }
 
-//RC PF_Manager::WriteInMetadata(const char *fileName)
-//{
-//	fstream _ofile;
-//	_ofile.open(_PF_Metadata_File,ios::out|ios::binary|ios::app);
-//	struct stat attrib;
-//	stat(fileName, &attrib);
-//	void *data = malloc(20);
-//	strftime((char *)data,20,"%y.%m.%d.%H.%M.%S",localtime(&(attrib.st_mtime)));
-//	_ofile<<fileName<<" "<<(char *)data<<endl;
-//	_ofile.close();
-//	free(data);
-//	return -1;
-//}
-//
-//RC PF_Manager::RemoveFileFromMetadata(const char *fileName)
-//{
-//	ifstream ifile(_PF_Metadata_File);
-//	string new_file(_PF_Metadata_File);
-//	new_file.append(".temp");
-//	ofstream ofile(new_file.c_str());
-//	string search = fileName;
-//	struct stat attrib;
-//	stat(search.c_str(),&attrib);
-//	void *data = malloc(20);
-//	strftime((char *)data,20,"%y.%m.%d.%H.%M.%S",localtime(&(attrib.st_mtime)));
-//	search = search +" ";
-//	free(data);
-//	string line;
-//	if(ifile.is_open())
-//	{
-//		while(ifile.good())
-//		{
-//			getline(ifile,line);
-//			if(line.find(search)!=string::npos)
-//			{
-//				// Do not include filename in the metadata file.
-//			}
-//			else if(line!="")
-//			{
-//				// Include the filename in the metadata file
-//				ofile<<line<<endl;
-//			}
-//
-//		}
-//	}
-//	ifile.close();
-//	ofile.close();
-//	remove(_PF_Metadata_File);
-//	rename(new_file.c_str(),_PF_Metadata_File);
-//	return success;
-//}
 
 bool PF_Manager::CheckFileInMetadata(const char *fileName)
 {
